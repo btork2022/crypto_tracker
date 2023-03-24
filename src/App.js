@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// importing Crypto component and adding it to the Routes component:
+// Importing necessary libraries
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Library for routing in React applications
+import Crypto from './components/Crypto'; // Importing the 'Crypto' component from the 'Crypto.js' file
 
+// Defining the main functional 'App' component 
 function App() {
+  // Returning the main content of the application
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // Defining the router
+    <Router> 
+      <div>
+        {/* Defining the routes */}
+        <Routes>
+          <Route path="/" element={<Crypto />} /> {/* Defining a route for the home page that renders the 'Crypto' component */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+export default App; // Exporting the 'App' component for use in other parts of the application
+
+
+
