@@ -1,3 +1,4 @@
+// To handle server-side API requests:
 // Importing necessary libraries
 const express = require('express'); // Library to create web server
 const cors = require('cors'); // Cross-Origin Resource Sharing library
