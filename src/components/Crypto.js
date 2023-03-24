@@ -2,6 +2,26 @@
 // Importing necessary libraries
 import React, { useState, useEffect } from 'react'; // Library for building user interfaces
 import axios from 'axios'; // Library to make HTTP requests
+// Inputing Material-UI styling
+import { makeStyles } from '@material-ui/core/styles'; // Library for customizing Material UI components
+import Typography from '@material-ui/core/Typography'; // Material UI component for displaying text
+
+// Function for customizing Material UI components
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginTop: theme.spacing(4),
+  },
+  title: {
+    marginBottom: theme.spacing(2),
+  },
+  price: {
+    fontSize: '2rem',
+    marginBottom: theme.spacing(2),
+  },
+}));
 
 // Defining a functional component called Crypto
 const Crypto = () => {
@@ -18,12 +38,21 @@ const Crypto = () => {
     getCryptoPrices();
   }, []);
 
-  // Rendering the cryptocurrency prices in JSX
+  // Rendering the cryptocurrency prices
   return (
-    <div>
-      <h2>Bitcoin: ${prices.bitcoin?.usd}</h2> // Displaying the current price of Bitcoin in USD
-      <h2>Ethereum: ${prices.ethereum?.usd}</h2> // Displaying the current price of Ethereum in USD
-      <h2>Litecoin: ${prices.litecoin?.usd}</h2> // Displaying the current price of Litecoin in USD
+    <div className={classes.root}>
+      <Typography variant="h4" className={classes.title}>
+        Cryptocurrency Prices
+      </Typography>
+      <Typography variant="h6" className={classes.price}>
+        Bitcoin: ${prices.bitcoin?.usd}
+      </Typography>
+      <Typography variant="h6" className={classes.price}>
+        Ethereum: ${prices.ethereum?.usd}
+      </Typography>
+      <Typography variant="h6" className={classes.price}>
+        Litecoin: ${prices.litecoin?.usd}
+      </Typography>
     </div>
   );
 };
